@@ -1,0 +1,6 @@
+[workspace]
+resolver = "2"
+members = [
+    "pkgs/libs/lix-core",
+    "pkgs/libs/lix-zlib"
+]
