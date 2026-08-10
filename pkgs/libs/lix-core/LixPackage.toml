@@ -1,0 +1,14 @@
+[package]
+name = "lix-core"
+version = "0.1.0"
+authors = ["LixOS Team"]
+license = "MIT OR Apache-2.0"
+type = "shared_lib"
+description = "Tipos primitivos, buffers de memoria y serializacion para LixOS"
+
+[dependencies]
+
+[build]
+compiler = "cargo"
+targets = ["x86_64-unknown-lixos", "x86_64-unknown-none"]
+outputs = ["lib/liblix_core.a", "lib/liblix_core.so"]
