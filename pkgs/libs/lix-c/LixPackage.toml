@@ -1,0 +1,24 @@
+[package]
+name = "lix-c"
+version = "0.1.0"
+authors = ["LixOS Team"]
+license = "MIT OR Apache-2.0"
+type = "shared_lib"
+description = "Cabeceras C estandar y runtime compile-based POSIX mapeado a LixOS"
+
+[dependencies]
+lix-core = ">=0.1.0"
+
+[build]
+compiler = "cc"
+headers = [
+    "include/stdio.h",
+    "include/stdlib.h",
+    "include/string.h",
+    "include/unistd.h",
+    "include/errno.h",
+    "include/sys/mman.h",
+    "include/sys/socket.h",
+    "include/lix/syscall.h"
+]
+outputs = ["lib/libc.so", "lib/libc.a"]
