@@ -1,0 +1,15 @@
+[package]
+name = "lix-zlib"
+version = "1.0.0"
+authors = ["LixOS Team"]
+license = "MIT OR Apache-2.0"
+type = "shared_lib"
+description = "Implementacion ultra-eficiente de compresion DEFLATE y zlib sin dependencias externas"
+
+[dependencies]
+lix-core = ">=0.1.0"
+
+[build]
+compiler = "cargo"
+targets = ["x86_64-unknown-lixos", "x86_64-unknown-none"]
+outputs = ["lib/libz.so", "lib/libz.a", "include/zlib.h"]
