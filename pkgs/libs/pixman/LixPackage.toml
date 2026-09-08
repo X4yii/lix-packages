@@ -1,0 +1,22 @@
+[package]
+name = "pixman"
+version = "0.42.2"
+authors = ["LixOS Team", "Pixman Authors"]
+license = "MIT"
+type = "shared_lib"
+description = "Biblioteca de composicion y manipulacion de pixeles 2D de bajo nivel para LixOS"
+
+[dependencies]
+lix-c = ">=0.1.0"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-unknown-lixos", "x86_64-unknown-none"]
+outputs = [
+    "include/pixman.h",
+    "include/pixman-1/pixman.h",
+    "lib/libpixman-1.so",
+    "lib/libpixman-1.a",
+    "lib/libpixman.so",
+    "lib/libpixman.a"
+]
