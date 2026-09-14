@@ -1,0 +1,26 @@
+[package]
+name = "freetype"
+version = "2.13.2"
+authors = ["LixOS Team", "FreeType Authors"]
+license = "FTL OR GPL-2.0"
+type = "shared_lib"
+description = "Motor de renderizado y rasterizacion de fuentes vectoriales TrueType y OpenType para LixOS"
+
+[dependencies]
+lix-c = ">=0.1.0"
+libm = ">=1.0.0"
+zlib = ">=1.0.0"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-unknown-lixos", "x86_64-unknown-none"]
+outputs = [
+    "include/ft2build.h",
+    "include/freetype/freetype.h",
+    "include/freetype/fttypes.h",
+    "include/freetype/ftimage.h",
+    "include/freetype/ftsystem.h",
+    "lib/libfreetype.so",
+    "lib/libfreetype.a",
+    "lib/libfreetype.so.6"
+]
