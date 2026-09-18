@@ -1,0 +1,18 @@
+[package]
+name = "fontview"
+version = "1.0.0"
+authors = ["LixOS Team"]
+license = "MIT"
+type = "app"
+description = "Visor y renderizador tipografico vectorial 2D para LixOS utilizando FreeType, Pixman y Libm"
+
+[dependencies]
+lix-c = ">=0.1.0"
+libm = ">=1.0.0"
+pixman = ">=0.42.2"
+freetype = ">=2.13.2"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-unknown-lixos", "x86_64-unknown-none"]
+outputs = ["bin/fontview"]
