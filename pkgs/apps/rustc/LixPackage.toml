@@ -1,0 +1,16 @@
+[package]
+name = "rustc"
+version = "1.99.1"
+authors = ["LixOS Toolchain Team", "The Rust Project Developers"]
+license = "MIT OR Apache-2.0"
+type = "app"
+description = "Compilador Rust y driver de arquitectura x86_64-lixos precompilado para LixOS"
+
+[dependencies]
+lix-c = ">=0.1.0"
+lix-core = ">=0.1.0"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-lixos", "x86_64-unknown-none"]
+outputs = ["bin/rustc"]
