@@ -1,0 +1,17 @@
+[package]
+name = "cargo"
+version = "1.99.1"
+authors = ["LixOS Toolchain Team", "The Rust Project Developers"]
+license = "MIT OR Apache-2.0"
+type = "app"
+description = "Gestor de paquetes y sistema de construccion oficial de Rust para LixOS"
+
+[dependencies]
+lix-c = ">=0.1.0"
+lix-core = ">=0.1.0"
+rustc = ">=1.80.0"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-lixos", "x86_64-unknown-none"]
+outputs = ["bin/cargo"]
