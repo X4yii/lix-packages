@@ -1,0 +1,16 @@
+[package]
+name = "util-linux"
+version = "2.40.1"
+authors = ["LixOS Storage Team", "Karel Zak"]
+license = "GPL-2.0-or-later"
+type = "app"
+description = "Coleccion de utilidades esenciales del sistema Linux y almacenamiento (fdisk, blkid, uuidgen) para LixOS"
+
+[dependencies]
+lix-c = ">=0.1.0"
+lix-core = ">=0.1.0"
+
+[build]
+compiler = "cc"
+targets = ["x86_64-lixos", "x86_64-unknown-none"]
+outputs = ["bin/fdisk", "bin/blkid", "bin/uuidgen"]

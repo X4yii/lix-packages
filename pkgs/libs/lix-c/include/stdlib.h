@@ -16,7 +16,13 @@ void abort(void);
 
 int atoi(const char *nptr);
 long atol(const char *nptr);
+unsigned long strtoul(const char *nptr, char **endptr, int base);
+unsigned long long strtoull(const char *nptr, char **endptr, int base);
+long strtol(const char *nptr, char **endptr, int base);
+long long strtoll(const char *nptr, char **endptr, int base);
 int abs(int j);
 long labs(long j);
+int rand(void);
+void srand(unsigned int seed);
 
 #endif

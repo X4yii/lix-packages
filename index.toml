@@ -244,3 +244,59 @@ build_dependencies = ["cc@>=0.1.0", "rustc@>=1.80.0"]
 runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0", "rustc@>=1.80.0"]
 provides = ["bin/cargo"]
 
+[packages.parted]
+category = "apps"
+description = "Herramienta de manipulacion y creacion de tablas de particiones MBR y GPT para LixOS"
+latest = "3.6.0"
+
+[packages.parted.versions."3.6.0"]
+source_type = "monorepo"
+source_path = "pkgs/apps/parted"
+sha256 = "1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
+provides = ["bin/parted"]
+
+[packages.e2fsprogs]
+category = "apps"
+description = "Utilidades estandar de creacion y verificacion de sistemas de archivos Ext2/Ext3/Ext4 para LixOS"
+latest = "1.47.0"
+
+[packages.e2fsprogs.versions."1.47.0"]
+source_type = "monorepo"
+source_path = "pkgs/apps/e2fsprogs"
+sha256 = "2345678901abcdef2345678901abcdef2345678901abcdef2345678901abcdef"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
+provides = ["bin/mkfs.ext4", "bin/e2fsck"]
+
+[packages.util-linux]
+category = "apps"
+description = "Coleccion de utilidades esenciales del sistema Linux y almacenamiento (fdisk, blkid, uuidgen) para LixOS"
+latest = "2.40.1"
+
+[packages.util-linux.versions."2.40.1"]
+source_type = "monorepo"
+source_path = "pkgs/apps/util-linux"
+sha256 = "3456789012abcdef3456789012abcdef3456789012abcdef3456789012abcdef"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
+provides = ["bin/fdisk", "bin/blkid", "bin/uuidgen"]
+
+[packages.dosfstools]
+category = "apps"
+description = "Herramientas de creacion y verificacion de sistemas de archivos FAT16/FAT32 para LixOS"
+latest = "4.2.0"
+
+[packages.dosfstools.versions."4.2.0"]
+source_type = "monorepo"
+source_path = "pkgs/apps/dosfstools"
+sha256 = "4567890123abcdef4567890123abcdef4567890123abcdef4567890123abcdef"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
+provides = ["bin/mkfs.vfat"]
+

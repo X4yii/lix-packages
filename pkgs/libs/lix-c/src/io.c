@@ -1,14 +1,18 @@
 #include <stdint.h>
 #include <stddef.h>
+#include <stdarg.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <sys/ioctl.h>
+#include <sys/mount.h>
 #include <lix/syscall.h>
 
 extern int64_t __lix_syscall1(uint64_t n, uint64_t a1);
 extern int64_t __lix_syscall2(uint64_t n, uint64_t a1, uint64_t a2);
 extern int64_t __lix_syscall3(uint64_t n, uint64_t a1, uint64_t a2, uint64_t a3);
+extern int64_t __lix_syscall5(uint64_t n, uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4, uint64_t a5);
 extern void *memset(void *s, int c, size_t n);
 
 int open(const char *pathname, int flags, ...) {
@@ -163,4 +167,39 @@ int access(const char *pathname, int mode) {
 
 int isatty(int fd) {
     return (fd >= 0 && fd <= 2) ? 1 : 0;
+}
+
+int ioctl(int fd, unsigned long request, ...) {
+    va_list ap;
+    va_start(ap, request);
+    uint64_t arg = va_arg(ap, uint64_t);
+    va_end(ap);
+    int64_t ret = __lix_syscall3(SYS_IOCTL, (uint64_t)fd, (uint64_t)request, arg);
+    if (ret < 0) {
+        errno = (int)(-ret);
+        return -1;
+    }
+    return (int)ret;
+}
+
+int mount(const char *source, const char *target, const char *filesystemtype, unsigned long mountflags, const void *data) {
+    int64_t ret = __lix_syscall5(SYS_MOUNT, (uint64_t)source, (uint64_t)target, (uint64_t)filesystemtype, (uint64_t)mountflags, (uint64_t)data);
+    if (ret < 0) {
+        errno = (int)(-ret);
+        return -1;
+    }
+    return 0;
+}
+
+int umount(const char *target) {
+    return umount2(target, 0);
+}
+
+int umount2(const char *target, int flags) {
+    int64_t ret = __lix_syscall2(SYS_UMOUNT, (uint64_t)target, (uint64_t)flags);
+    if (ret < 0) {
+        errno = (int)(-ret);
+        return -1;
+    }
+    return 0;
 }
