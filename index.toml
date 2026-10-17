@@ -205,9 +205,9 @@ provides = ["bin/gcc", "bin/cc"]
 [packages.rustc]
 category = "apps"
 description = "Compilador Rust y driver de arquitectura x86_64-lixos precompilado para LixOS"
-latest = "1.85.0"
+latest = "1.99.1"
 
-[packages.rustc.versions."1.85.0"]
+[packages.rustc.versions."1.99.1"]
 source_type = "monorepo"
 source_path = "pkgs/apps/rustc"
 sha256 = "d4e5f6a7b8c910233445566778899aabbccddeeff00112233445566778899a1b"
@@ -215,4 +215,32 @@ build_system = "cc"
 build_dependencies = ["cc@>=0.1.0"]
 runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
 provides = ["bin/rustc"]
+
+[packages.llvm]
+category = "apps"
+description = "Coleccion LLVM, Clang y enlazador LLD precompilados para LixOS"
+latest = "19.1.1"
+
+[packages.llvm.versions."19.1.1"]
+source_type = "monorepo"
+source_path = "pkgs/apps/llvm"
+sha256 = "e5f6a7b8c9d0112233445566778899aabbccddeeff00112233445566778899a1"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0"]
+provides = ["bin/clang", "bin/ld.lld"]
+
+[packages.cargo]
+category = "apps"
+description = "Gestor de paquetes y motor de compilacion de Rust para LixOS"
+latest = "1.99.1"
+
+[packages.cargo.versions."1.99.1"]
+source_type = "monorepo"
+source_path = "pkgs/apps/cargo"
+sha256 = "f6a7b8c9d0e12233445566778899aabbccddeeff00112233445566778899a1b2"
+build_system = "cc"
+build_dependencies = ["cc@>=0.1.0", "rustc@>=1.80.0"]
+runtime_dependencies = ["lix-core@>=0.1.0", "lix-c@>=0.1.0", "rustc@>=1.80.0"]
+provides = ["bin/cargo"]
 
